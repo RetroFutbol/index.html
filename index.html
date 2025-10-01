@@ -1,388 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Tienda Camisetas Fútbol</title>
-<meta name="description" content="Tienda online de camisetas de fútbol — oficiales y retro. Envíos a todo el país." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda de Camisetas</title>
 <style>
-:root{
---bg:#0f1724; --card:#0b1220; --accent:#e63946; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
---maxw:1100px;
-font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-*{box-sizing:border-box}
-body{
-margin:0; background:linear-gradient(180deg,var(--bg), #071024 120%);
-color:#e6eef7; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-padding:24px; display:flex; justify-content:center;
-}
-.wrap{width:100%; max-width:var(--maxw);}
-
-/* Header */
-header{display:flex; gap:16px; align-items:center; margin-bottom:18px;}
-.logo{display:flex; gap:12px; align-items:center;}
-.logo .mark{width:48px; height:48px; background:linear-gradient(135deg,#ffbcbc,#ff6b6b); border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; color:#111;}
-h1{margin:0; font-size:20px;}
-nav{margin-left:auto; display:flex; gap:10px; align-items:center;}
-nav button{background:transparent;border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:8px 12px; border-radius:8px; cursor:pointer}
-.hero{display:flex; gap:20px; align-items:center; padding:18px; background:var(--glass); border-radius:12px; margin-bottom:18px;}
-.hero .left{flex:1}
-.hero h2{margin:0 0 8px 0; font-size:22px;}
-.hero p{margin:0;color:var(--muted)}
-.hero .cta{margin-top:12px; display:flex; gap:8px;}
-.btn{background:var(--accent); color:white; border:none; padding:10px 14px; border-radius:10px; cursor:pointer;}
-.btn.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted)}
-
-/* Controls */
-.controls{display:flex; gap:12px; margin:14px 0; flex-wrap:wrap; align-items:center;}
-.search{flex:1; min-width:180px}
-input[type="search"], select{width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:inherit}
-.filters{display:flex; gap:8px; min-width:260px}
-
-/* Grid */
-.grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); display:flex; flex-direction:column; gap:10px;}
-.imgwrap{height:180px; border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#07162b}
-.imgwrap img{width:100%; height:100%; object-fit:cover;}
-.meta{display:flex; justify-content:space-between; align-items:center;}
-.meta .title{font-weight:600}
-.price{font-weight:700; color:var(--accent)}
-
-.actions{display:flex; gap:8px; margin-top:auto;}
-.small{padding:8px 10px; border-radius:8px; background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--muted); cursor:pointer}
-
-/* Cart */
-.cart-panel{position:fixed; right:18px; top:18px; width:320px; max-height:70vh; overflow:auto; background:#061022dd; border-radius:12px; padding:12px; border:1px solid rgba(255,255,255,0.04);}
-.cart-panel h3{margin:0 0 12px 0}
-.cart-item{display:flex; gap:10px; align-items:center; margin-bottom:10px}
-.cart-item img{width:56px; height:56px; object-fit:cover; border-radius:6px}
-.cart-item .ci-info{flex:1}
-.cart-item .remove{background:transparent;border:none;color:var(--muted);cursor:pointer}
-
-/* Modal */
-.modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(2,6,23,0.6); padding:18px;}
-.modal.show{display:flex}
-.modal-card{background:linear-gradient(180deg,#071428,#071828); width:100%; max-width:920px; border-radius:12px; padding:18px; display:grid; grid-template-columns:1fr 1fr; gap:18px;}
-.modal-card img{width:100%; height:100%; object-fit:cover; border-radius:8px; max-height:520px}
-.specs h3{margin:0 0 8px 0}
-.sizes{display:flex; gap:8px; margin:10px 0}
-.size{padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.05); cursor:pointer}
-.size.selected{background:rgba(255,255,255,0.06)}
-.close{position:absolute; right:18px; top:18px; background:transparent;border:1px solid rgba(255,255,255,0.06); padding:8px; border-radius:10px; color:var(--muted); cursor:pointer}
-
-/* Footer */
-footer{margin-top:24px; text-align:center; color:var(--muted); font-size:13px; padding:8px;}
-
-@media(max-width:720px){
-.modal-card{grid-template-columns:1fr}
-.hero{flex-direction:column; align-items:flex-start}
-}
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+header { background: #222; color: white; padding: 1rem; text-align: center; }
+.container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; padding: 1rem; }
+.card { background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); overflow: hidden; text-align: center; }
+.card img { width: 100%; height: 200px; object-fit: cover; }
+.card h3 { margin: 0.5rem 0; }
+.card p { color: #444; margin: 0.5rem 0; }
+footer { background: #222; color: white; padding: 1rem; text-align: center; margin-top: 2rem; }
 </style>
 </head>
 <body>
-<div class="wrap">
 <header>
-<div class="logo">
-<div class="mark">FC</div>
-<div>
-<h1>TiendaCamisetas</h1>
-<div style="font-size:12px;color:var(--muted)">Camisetas oficiales y retro</div>
-</div>
-</div>
-
-<nav>
-<button id="open-cart">🛒 Carrito (<span id="cart-count">0</span>)</button>
-<button onclick="location.reload()">🔁 Recargar</button>
-</nav>
+<h1>Tienda de Camisetas de Fútbol</h1>
 </header>
 
-<section class="hero">
-<div class="left">
-<h2>Las mejores camisetas de fútbol — nuevas y retro</h2>
-<p>Ediciones oficiales, material premium, envío rápido. Filtra por equipo, talla o busca tu camiseta favorita.</p>
-<div class="cta">
-<button class="btn" onclick="document.getElementById('main-search').focus()">Buscar camisetas</button>
-<button class="btn ghost" onclick="filterBy('oferta')">Ofertas</button>
-</div>
-</div>
-<div class="right" style="min-width:220px; text-align:center">
-<img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=900&auto=format&fit=crop&ixlib=rb-4.0.3&s=2f7cf16f5fa53f52e5d8c58f3f0c6f2f" alt="camisetas" style="width:220px;border-radius:10px; box-shadow:0 6px 20px rgba(0,0,0,0.6)">
-</div>
-</section>
-
-<div class="controls">
-<div class="search">
-<input id="main-search" type="search" placeholder="Buscar (ej. Barcelona, retro, 2022...)" oninput="renderProducts()" />
-</div>
-<div class="filters">
-<select id="team-filter" onchange="renderProducts()">
-<option value="">Todos los equipos</option>
-<option>Barcelona</option>
-<option>Real Madrid</option>
-<option>Argentina</option>
-<option>Brasil</option>
-<option>Juventus</option>
-</select>
-<select id="size-filter" onchange="renderProducts()">
-<option value="">Todas las tallas</option>
-<option>A</option>
-<option>B</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-</select>
-<select id="sort" onchange="renderProducts()">
-<option value="popular">Más populares</option>
-<option value="price-asc">Precio: bajo a alto</option>
-<option value="price-desc">Precio: alto a bajo</option>
-</select>
-</div>
-</div>
-
-<main>
-<section class="grid" id="products-grid">
-<!-- Productos se inyectan aquí -->
-</section>
+<main class="container" id="products-container">
+<!-- Aquí se cargarán los productos -->
 </main>
 
 <footer>
-© <span id="year"></span> TiendaCamisetas — Hecho con ❤️
+<p>&copy; 2025 Tienda de Camisetas</p>
 </footer>
-</div>
-
-<!-- Carrito panel -->
-<div class="cart-panel" id="cart-panel" style="display:none;">
-<h3>Carrito</h3>
-<div id="cart-items"></div>
-<div style="border-top:1px solid rgba(255,255,255,0.03); padding-top:10px; margin-top:8px;">
-<div style="display:flex; justify-content:space-between; margin-bottom:8px;"><strong>Total:</strong><strong id="cart-total">$0.00</strong></div>
-<button class="btn" onclick="checkout()">Finalizar compra</button>
-<button class="btn ghost" style="margin-left:8px" onclick="clearCart()">Vaciar</button>
-</div>
-</div>
-
-<!-- Modal producto -->
-<div class="modal" id="modal">
-<div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-<div style="position:relative;">
-<img id="modal-img" src="" alt="">
-</div>
-<div class="specs">
-<h3 id="modal-title"></h3>
-<div style="color:var(--muted)" id="modal-team"></div>
-<p id="modal-desc" style="margin-top:12px;color:var(--muted)"></p>
-<div style="margin-top:8px;"><strong>Precio: <span id="modal-price"></span></strong></div>
-<div style="margin-top:12px;">
-<div>Tallas</div>
-<div class="sizes" id="modal-sizes"></div>
-</div>
-<div style="margin-top:16px; display:flex; gap:8px;">
-<button class="btn" id="add-to-cart">Añadir al carrito</button>
-<button class="small" onclick="closeModal()">Cerrar</button>
-</div>
-</div>
-<button class="close" onclick="closeModal()">✕</button>
-</div>
-</div>
 
 <script>
-// datos de ejemplo (edítalos fácilmente)
-const PRODUCTS = [
-{ id:1, title:"Camiseta Barcelona 2024 (Local)", team:"Barcelona", price:89.99, img:"https://picsum.photos/seed/barca1/800/600", desc:"Camiseta oficial 2024. Tecnologías de transpiración.", sizes:["S","M","L","XL"], popular:95, tag:"nuevo" },
-{ id:2, title:"Camiseta Real Madrid Retro 2002", team:"Real Madrid", price:75.00, img:"https://picsum.photos/seed/realm1/800/600", desc:"Edición retro 2002 con parche histórico.", sizes:["M","L"], popular:72, tag:"retro" },
-{ id:3, title:"Camiseta Argentina Titular 2024", team:"Argentina", price:99.5, img:"https://picsum.photos/seed/arg1/800/600", desc:"Camiseta de la selección, con emblema bordado.", sizes:["S","M","L","XL"], popular:120, tag:"oferta" },
-{ id:4, title:"Camiseta Brasil 1994 Retro", team:"Brasil", price:64.9, img:"https://picsum.photos/seed/bra1/800/600", desc:"Retro clásico 1994 — tela suave.", sizes:["M","L","XL"], popular:68, tag:"retro" },
-{ id:5, title:"Camiseta Juventus 2023 Away", team:"Juventus", price:79.0, img:"https://picsum.photos/seed/juv1/800/600", desc:"Versión away 2023, corte slim.", sizes:["S","M","L"], popular:80, tag:"nuevo" },
-{ id:6, title:"Camiseta Barcelona Retro 1992", team:"Barcelona", price:59.99, img:"https://picsum.photos/seed/barca2/800/600", desc:"Diseño clásico de los 90.", sizes:["S","M","L"], popular:65, tag:"retro" }
-];
+async function cargarProductos() {
+try {
+const response = await fetch('products.json');
+const productos = await response.json();
 
-// estado
-let cart = [];
-let currentModalProduct = null;
-document.getElementById('year').textContent = new Date().getFullYear();
+const container = document.getElementById('products-container');
+container.innerHTML = '';
 
-// util
-function currency(v){ return '$' + Number(v).toFixed(2); }
-
-// render productos
-function renderProducts(){
-const grid = document.getElementById('products-grid');
-grid.innerHTML = '';
-const q = (document.getElementById('main-search').value||'').toLowerCase().trim();
-const team = document.getElementById('team-filter').value;
-const size = document.getElementById('size-filter').value;
-const sort = document.getElementById('sort').value;
-
-let items = PRODUCTS.filter(p=>{
-if(team && p.team !== team) return false;
-if(size && !p.sizes.includes(size)) return false;
-if(q){
-const text = (p.title + ' ' + p.team + ' ' + p.desc + ' ' + p.tag).toLowerCase();
-if(!text.includes(q)) return false;
-}
-return true;
-});
-
-if(sort === 'price-asc') items.sort((a,b)=>a.price-b.price);
-else if(sort === 'price-desc') items.sort((a,b)=>b.price-a.price);
-else items.sort((a,b)=>b.popular - a.popular);
-
-if(items.length === 0){
-grid.innerHTML = '<div style="grid-column:1/-1; color:var(--muted); padding:18px; text-align:center">No se encontraron camisetas.</div>';
-return;
-}
-
-for(const p of items){
-const card = document.createElement('article');
+productos.forEach(p => {
+const card = document.createElement('div');
 card.className = 'card';
 card.innerHTML = `
-<div class="imgwrap"><img src="${p.img}" alt="${p.title}"></div>
-<div class="meta"><div><div class="title">${p.title}</div><div style="font-size:12px;color:var(--muted)">${p.team}</div></div><div class="price">${currency(p.price)}</div></div>
-<div style="color:var(--muted); font-size:13px">${p.desc.slice(0,72)}${p.desc.length>72? '...' : ''}</div>
-<div class="actions">
-<button class="small" onclick="openModal(${p.id})">Ver</button>
-<button class="small" onclick="quickAdd(${p.id})">Añadir</button>
-</div>
+<img src="${p.imagen}" alt="${p.nombre}">
+<h3>${p.nombre}</h3>
+<p>Equipo: ${p.equipo}</p>
+<p><strong>${p.precio}</strong></p>
 `;
-grid.appendChild(card);
-}
-}
-
-// modal
-function openModal(id){
-const p = PRODUCTS.find(x=>x.id===id);
-if(!p) return;
-currentModalProduct = p;
-document.getElementById('modal-img').src = p.img;
-document.getElementById('modal-title').textContent = p.title;
-document.getElementById('modal-team').textContent = p.team;
-document.getElementById('modal-desc').textContent = p.desc;
-document.getElementById('modal-price').textContent = currency(p.price);
-
-const sizesWrap = document.getElementById('modal-sizes');
-sizesWrap.innerHTML = '';
-p.sizes.forEach(s=>{
-const btn = document.createElement('button');
-btn.className = 'size';
-btn.textContent = s;
-btn.onclick = ()=> {
-document.querySelectorAll('.size').forEach(el=>el.classList.remove('selected'));
-btn.classList.add('selected');
-};
-sizesWrap.appendChild(btn);
+container.appendChild(card);
 });
-
-document.getElementById('modal').classList.add('show');
-}
-function closeModal(){
-document.getElementById('modal').classList.remove('show');
-currentModalProduct = null;
-}
-
-// carrito
-function quickAdd(id){
-const p = PRODUCTS.find(x=>x.id===id);
-if(!p) return;
-addToCart(p, p.sizes[0]);
-}
-document.getElementById('add-to-cart').addEventListener('click', ()=>{
-if(!currentModalProduct) return;
-const selected = document.querySelector('.size.selected');
-const size = selected ? selected.textContent : (currentModalProduct.sizes[0]||'M');
-addToCart(currentModalProduct, size);
-closeModal();
-});
-
-function addToCart(product, size){
-// si ya existe, aumentar cantidad
-const found = cart.find(i=>i.id===product.id && i.size===size);
-if(found) found.qty++;
-else cart.push({ id:product.id, title:product.title, price:product.price, qty:1, img:product.img, size: size});
-renderCart();
-toast(`${product.title} (${size}) añadido al carrito`);
-}
-
-function renderCart(){
-const panel = document.getElementById('cart-panel');
-const itemsWrap = document.getElementById('cart-items');
-itemsWrap.innerHTML = '';
-if(cart.length === 0){
-itemsWrap.innerHTML = '<div style="color:var(--muted)">Tu carrito está vacío.</div>';
-} else {
-for(const it of cart){
-const div = document.createElement('div');
-div.className = 'cart-item';
-div.innerHTML = `
-<img src="${it.img}" alt="${it.title}">
-<div class="ci-info">
-<div style="font-weight:600">${it.title}</div>
-<div style="font-size:13px;color:var(--muted)">${it.size} • ${it.qty} x ${currency(it.price)}</div>
-</div>
-<div style="text-align:right">
-<div style="font-weight:700">${currency(it.price * it.qty)}</div>
-<button class="remove" onclick="removeItem('${it.id}','${it.size}')">Eliminar</button>
-</div>
-`;
-itemsWrap.appendChild(div);
-}
-}
-document.getElementById('cart-count').textContent = cart.reduce((s,i)=>s+i.qty,0);
-document.getElementById('cart-total').textContent = currency(cart.reduce((s,i)=>s + i.price*i.qty,0));
-}
-
-function removeItem(id,size){
-const idx = cart.findIndex(i=>i.id==id && i.size==size);
-if(idx>=0){
-cart.splice(idx,1);
-renderCart();
+} catch (error) {
+console.error('Error al cargar los productos:', error);
 }
 }
 
-function clearCart(){
-if(!confirm('¿Vaciar el carrito?')) return;
-cart = [];
-renderCart();
-}
-
-function checkout(){
-if(cart.length===0){ alert('El carrito está vacío.'); return; }
-// simulación
-alert('Gracias — esta es una demo. Aquí iría la pasarela de pagos.');
-cart = [];
-renderCart();
-}
-
-// abrir/ocultar panel carrito
-document.getElementById('open-cart').addEventListener('click', ()=>{
-const p = document.getElementById('cart-panel');
-p.style.display = p.style.display === 'none' ? 'block' : 'none';
-renderCart();
-});
-
-// helper toast
-function toast(msg){
-const el = document.createElement('div');
-el.textContent = msg;
-el.style = "position:fixed; left:50%; transform:translateX(-50%); bottom:36px; background:#0b2238; padding:10px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); color:var(--muted); z-index:9999";
-document.body.appendChild(el);
-setTimeout(()=> el.style.opacity=0,1600);
-setTimeout(()=> el.remove(),2200);
-}
-
-// filtro especial
-function filterBy(tag){
-document.getElementById('main-search').value = tag;
-renderProducts();
-}
-
-// inicial
-renderProducts();
-renderCart();
-
-// cerrar modal con ESC
-document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal() });
-
+cargarProductos();
 </script>
 </body>
 </html>
